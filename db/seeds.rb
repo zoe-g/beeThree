@@ -1,4 +1,3 @@
-
 avail = ProductStatus.create(name: 'Available')
 sold = ProductStatus.create(name: 'Sold')
 expired = ProductStatus.create(name: 'Expired')
