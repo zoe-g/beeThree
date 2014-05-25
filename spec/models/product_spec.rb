@@ -18,8 +18,8 @@ describe 'product' do
     end
 
     it 'should be at least two characters' do
-      product = Product.create(name: "a")
-      product.should_not be_valid
+      @product.name = "a"
+      @product.should_not be_valid
     end
 
   end
