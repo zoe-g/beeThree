@@ -50,13 +50,18 @@ describe 'product' do
       @product.should_not be_valid
     end
 
-    # it 'should be an integer' do
-    #   @product.price = '50'
-    #   @product.should_not be_valid
-    # end
+    it 'should be an integer' do
+      @product.price = 'fifty'
+      @product.should_not be_valid
+    end
 
-    it 'should be greater than zero' do
+    it 'should be accept zero' do
       @product.price = 0
+      @product.should be_valid
+    end
+
+    it 'should be greater than or equal to zero' do
+      @product.price = -1
       @product.should_not be_valid
     end
 
