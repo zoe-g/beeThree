@@ -15,5 +15,3 @@
 //= require turbolinks
 //= require_tree .
 //= require handlebars.runtime
-//= require_tree ./templates
-
