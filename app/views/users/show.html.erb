@@ -1,0 +1,54 @@
+
+<div class="user-txn">
+	<div class="txn-product-image">
+		<img src="#" />
+	</div>
+
+	<div class="txn-product-info">
+  <h3>Couch</h3>
+  <h3>Price</h3>
+  <p>This couch is lovely and priced to sell!</p>
+
+	<button type="button" class="btn btn-warning">Edit Listing</button>
+	<button type="button" class="btn btn-warning">Delete Listing</button>
+</div>
+
+	<div class="txn-status-options">
+		/determine which bucket based on role
+		TXN STATUS (CHANGE WORDING ON ROLE/STATUS)
+
+
+
+		FRIEND'S NAME
+		UPDATED_AT FROM USERS_PRODUCTS TO REFLECT LAST CHANGE
+
+		<!-- pending-seller-buttons hidden by default, shown only when role=seller and txn_status=pending -->
+		<!-- TO DO: set javascript to show when role=seller and txn_status=pending -->
+		<!-- TO DO: set javascript to process payment and adjust statuses when Accept or Decline is clicked -->
+		<div class="pending-seller-buttons">
+			<button type="button" class="btn btn-success">Approve Sale</button>
+			<button type="button" class="btn btn-danger">Decline Sale</button>
+		</div><!--pending-seller-buttons-->
+
+	</div>
+</div>
+
+<!-- 
+open/seller
+LISTED
+
+pending/seller+buyer
+REQUESTED
+
+cancelled/buyer
+DECLINED
+
+payment/seller+buyer
+PENDING PAYMENT
+
+complete/seller
+SOLD
+
+complete/buyer
+PURCHASED
+-->
