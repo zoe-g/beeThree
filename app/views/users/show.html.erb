@@ -1,37 +1,46 @@
+<div id="your_listings">
 
-<div class="user-txn">
-	<div class="txn-product-image">
-		<img src="#" />
+<% @sell_transactions.each do |txn| %>
+<div class="panel panel-warning user-txn">
+
+  <div class="panel-heading">
+  	<h4><span><%= txn.product.name %></span>
+  	<span class="pull-right">$<%= txn.product.price %></span></h4>
+  </div><!-- panel heading -->
+
+  <div class="panel-body">
+  	<span class="col-xs-3">
+			<img class="img-rounded img-responsive pull-left txn-product-image" src="<%= txn.product.image_url %>" />
+		</span>
+
+		<div class="col-xs-6 txn-product-info">
+	  	<p><%= txn.product.description %></p>
+	  	<div class="align-buttons-to-bottom edit-delete-buttons">
+				<button type="button" class="btn btn-xs btn-default">Edit Listing</button>
+				<button type="button" class="btn btn-xs btn-default">Delete Listing</button>
+			</div><!--edit-delete-buttons-->
+		</div><!--txn-product-info-->
+
+		<div class="col-xs-3 txn-status-options">
+			<!-- TO DO: set javascript to determine which bucket based on role -->
+			<div class="well well-sm txn-status"><%= txn.txn_status.name %></div>
+			<!-- TO DO: set javascript to get person in other role -->
+			<div class="well well-sm txn-friend">FRIEND PIC + NAME</div>
+			<div class="well well-sm txn-updated">As of <%= txn.updated_at.to_date.to_formatted_s(:long) %></div>
+
+			<!-- pending-seller-buttons hidden by default, shown only when role=seller and txn_status=pending -->
+			<!-- TO DO: set javascript to show when role=seller and txn_status=pending -->
+			<!-- TO DO: set javascript to process payment and adjust statuses when Accept or Decline is clicked -->
+			<div class="align-buttons-to-bottom pending-seller-buttons">
+				<button type="button" class="btn btn-success">Approve Sale</button>
+				<button type="button" class="btn btn-danger">Decline Sale</button>
+			</div><!--pending-seller-buttons-->
+
 	</div>
-
-	<div class="txn-product-info">
-  <h3>Couch</h3>
-  <h3>Price</h3>
-  <p>This couch is lovely and priced to sell!</p>
-
-	<button type="button" class="btn btn-warning">Edit Listing</button>
-	<button type="button" class="btn btn-warning">Delete Listing</button>
-</div>
-
-	<div class="txn-status-options">
-		/determine which bucket based on role
-		TXN STATUS (CHANGE WORDING ON ROLE/STATUS)
-
-
-
-		FRIEND'S NAME
-		UPDATED_AT FROM USERS_PRODUCTS TO REFLECT LAST CHANGE
-
-		<!-- pending-seller-buttons hidden by default, shown only when role=seller and txn_status=pending -->
-		<!-- TO DO: set javascript to show when role=seller and txn_status=pending -->
-		<!-- TO DO: set javascript to process payment and adjust statuses when Accept or Decline is clicked -->
-		<div class="pending-seller-buttons">
-			<button type="button" class="btn btn-success">Approve Sale</button>
-			<button type="button" class="btn btn-danger">Decline Sale</button>
-		</div><!--pending-seller-buttons-->
-
-	</div>
-</div>
+	</div><!-- panel body -->
+</div><!-- panel user-txn -->
+<% end %>
+</div><!--YOUR LISTINGS-->
 
 <!-- 
 open/seller

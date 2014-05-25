@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 	
 	def show
-		#@user_transactions = @current_user.users_products.users_products
-		
+		@sell_transactions = UsersProducts.where(user_id: params[:id]).where(role_id: 1)
+		# @buyers = @sell_transactions.products
+
+		@buy_transactions = UsersProducts.where(user_id: params[:id]).where(role_id: 2)
+
 	end
 
 	def create
