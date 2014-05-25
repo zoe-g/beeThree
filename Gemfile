@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # infrastructure
 gem 'rails', '4.1.1'
 gem 'pg'
+gem  'aws-sdk'
 
 # front-end gems
 gem 'sass-rails', '~> 4.0.3'
