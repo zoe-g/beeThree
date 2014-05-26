@@ -6,7 +6,7 @@
 
 $( document ).ready(function(){
 	$(".field").hide();
-//clicking in the paragraph on show page will change to and from form
+//clicking edit and cancel to hide and show form for product update
 var showing = false;
   	$("#edit").on('click', function(){
   		if(showing){
