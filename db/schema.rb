@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20140525201150) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "facebook_id"
-    t.string   "oath_token"
-    t.datetime "oath_expires_at"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.string   "full_name"
   end
 
