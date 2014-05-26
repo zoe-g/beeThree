@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   #setting up routes for facebook login based on RailsCast:
-  match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
-  match 'signout', to: 'sessions#destroy', as: 'signout'  
+  match 'auth/:provider/callback', to: 'sessions#create', via: 'post'
+  match 'auth/failure', to: redirect('/'), via: 'get'
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: 'delete'
 
 
   resources :products
