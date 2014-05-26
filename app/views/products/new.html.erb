@@ -1,15 +1,6 @@
-<h1>product show page!</h1>
+<h1>New product page!</h1>
 
-<p>
-<%= @product.name %>
-<%= @product.description %>
-<%= @product.price %>
-<%=  image_tag @product.avatar.url(:square) %>
-<button id="edit">Edit</button>
-</p>
-
-
-<div class="field">
+<div>
 	<%= form_for(@product) do |f| %>
 
 	<%= f.label :name %>

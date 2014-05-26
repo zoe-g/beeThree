@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # infrastructure
 gem 'rails', '4.1.1'
 gem 'pg'
+gem  'aws-sdk'
+gem 'paperclip', '~> 4.1'
 
 # front-end gems
 gem 'sass-rails', '~> 4.0.3'
