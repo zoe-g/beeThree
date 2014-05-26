@@ -1,12 +1,15 @@
-<div id="your_listings">
+<% @all_transactions.each do |txn| %>
 
-<% @sell_transactions.each do |txn| %>
-<div class="panel panel-warning user-txn">
+<% if txn.seller? %>
+<div class="panel panel-info user-txn">
+<% else %>
+<div class="panel panel-success user-txn">
+<%end %>
 
   <div class="panel-heading">
   	<h4><span><%= txn.product.name %></span>
   	<span class="pull-right">$<%= txn.product.price %></span></h4>
-  </div><!-- panel heading -->
+  </div>
 
   <div class="panel-body">
   	<span class="col-xs-3">
@@ -15,49 +18,38 @@
 
 		<div class="col-xs-6 txn-product-info">
 	  	<p><%= txn.product.description %></p>
+
+	  	<!-- edit-delete-buttons shown only when role=seller -->
+	  	<% if txn.seller? %>
 	  	<div class="align-buttons-to-bottom edit-delete-buttons">
 				<button type="button" class="btn btn-xs btn-default">Edit Listing</button>
 				<button type="button" class="btn btn-xs btn-default">Delete Listing</button>
-			</div><!--edit-delete-buttons-->
-		</div><!--txn-product-info-->
+			</div>
+			<% end %>
+		</div>
+
+<!-- TODO: program edit/delete buttons for specific product listing -->
 
 		<div class="col-xs-3 txn-status-options">
-			<!-- TO DO: set javascript to determine which bucket based on role -->
-			<div class="well well-sm txn-status"><%= txn.txn_status.name %></div>
-			<!-- TO DO: set javascript to get person in other role -->
-			<div class="well well-sm txn-friend">FRIEND PIC + NAME</div>
-			<div class="well well-sm txn-updated">As of <%= txn.updated_at.to_date.to_formatted_s(:long) %></div>
+			<div class="well well-sm txn-status">
+				<strong><%= txn.visible_status %></strong><br>
+				<% unless txn.txn_status.open? %>
+				<%= txn.status_preposition+' '+txn.transact_with.first_name+' '+txn.transact_with.last_name %><br>
+				<% end %>
+				as of <%= txn.updated_at.to_date.to_formatted_s(:long) %>
+			</div>
 
-			<!-- pending-seller-buttons hidden by default, shown only when role=seller and txn_status=pending -->
-			<!-- TO DO: set javascript to show when role=seller and txn_status=pending -->
-			<!-- TO DO: set javascript to process payment and adjust statuses when Accept or Decline is clicked -->
+			<!-- pending-seller-buttons shown only when role=seller and txn_status=pending -->
+			<% if txn.seller? && txn.txn_status.pending? %>
 			<div class="align-buttons-to-bottom pending-seller-buttons">
 				<button type="button" class="btn btn-success">Approve Sale</button>
 				<button type="button" class="btn btn-danger">Decline Sale</button>
-			</div><!--pending-seller-buttons-->
+			</div>
+			<% end %>
+		</div>
+
+<!-- TO DO: set javascript to process payment and adjust statuses when Accept or Decline is clicked -->
 
 	</div>
-	</div><!-- panel body -->
-</div><!-- panel user-txn -->
+</div>
 <% end %>
-</div><!--YOUR LISTINGS-->
-
-<!-- 
-open/seller
-LISTED
-
-pending/seller+buyer
-REQUESTED
-
-cancelled/buyer
-DECLINED
-
-payment/seller+buyer
-PENDING PAYMENT
-
-complete/seller
-SOLD
-
-complete/buyer
-PURCHASED
--->
