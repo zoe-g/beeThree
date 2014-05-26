@@ -1,6 +1,6 @@
 <h1>New product page!</h1>
 
-<div class="field">
+<div>
 	<%= form_for(@product) do |f| %>
 
 	<%= f.label :name %>
@@ -12,7 +12,7 @@
   <%= f.label :price %>
   <%= f.text_field :price %>
 
-  <%= f.label :avatar %>
+  <%#= f.label :avatar  %>
   <%= f.file_field :avatar %>
 
   <%= f.submit %>

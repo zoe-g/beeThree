@@ -14,4 +14,9 @@ class Product < ActiveRecord::Base
     square: '200x200#',
     medium: '300x300>'
   }
+<<<<<<< HEAD
+=======
+# Validate the attached image is image/jpg, image/png, etc
+	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+>>>>>>> pic upload and product edit done
 end

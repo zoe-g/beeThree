@@ -12,11 +12,23 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-    	binding.pry
       redirect_to @product, notice: 'Item was successfully created.'
     else
       render action: 'new'
     end
+  end
+
+  def edit
+  	@product = Product.find(params[:id])
+  end
+
+  def update
+  	@product = Product.find(params[:id])
+  	@product.update(product_params)
+
+  	if @product.save
+  	redirect_to @product
+  	end
   end
 
   def show

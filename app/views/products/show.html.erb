@@ -5,4 +5,25 @@
 <%= @product.description %>
 <%= @product.price %>
 <%=  image_tag @product.avatar.url(:square) %>
+<button id="edit">Edit</button>
 </p>
+
+
+<div class="field">
+	<%= form_for(@product) do |f| %>
+
+	<%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+
+  <%#= f.label :avatar  %>
+  <%= f.file_field :avatar %>
+
+  <%= f.submit %>
+  <% end %>
+</div>

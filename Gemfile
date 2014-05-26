@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 gem 'pg'
 gem  'aws-sdk'
-gem 'paperclip'
+gem 'paperclip', '~> 4.1'
 
 # front-end gems
 gem 'sass-rails', '~> 4.0.3'

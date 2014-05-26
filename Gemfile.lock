@@ -199,7 +199,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-facebook (~> 1.6.0)
-  paperclip
+  paperclip (~> 4.1)
   pg
   pry
   rails (= 4.1.1)
