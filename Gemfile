@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.1'
 
 # infrastructure
 gem 'rails', '4.1.1'
@@ -32,6 +33,10 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'better_errors', '~> 1.1.0'
 	gem 'binding_of_caller', '~> 0.7.2'
+end
+
+group :production do
+	gem 'rails_12factor'
 end
 
 
