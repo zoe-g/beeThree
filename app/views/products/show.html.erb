@@ -1,18 +1,19 @@
 <h1>product show page!</h1>
 
-<p>
-<%= @product.name %>
-<%= @product.description %>
-<%= @product.price %>
-<%=  image_tag @product.avatar.url(:square) %>
-<button id="edit">Edit</button>
-</p>
+<div>
+  <div><%= @product.name %></div>
+  <div><%= @product.description %></div>
+  <div>$<%= @product.price %>.00</div>
+  <div><%=  image_tag @product.avatar.url(:medium) %></div>
+  <div><button id="edit">Edit</button></div>
+  <div><button id="buy">Buy Now!</button></div>
+</div>
 
 
 <div class="field">
-	<%= form_for(@product) do |f| %>
+  <%= form_for(@product) do |f| %>
 
-	<%= f.label :name %>
+  <%= f.label :name %>
   <%= f.text_field :name %>
 
   <%= f.label :description %>
