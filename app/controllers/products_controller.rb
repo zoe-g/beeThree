@@ -11,6 +11,11 @@ class ProductsController < ApplicationController
 	def create
     @product = Product.new(product_params)
     if @product.save
+      # also add a record in UsersProducts to associate user as the seller of this product
+      open = TxnStatus.find_by(name: 'Listed')
+      seller = Role.find_by(name: 'Seller')
+      UsersProducts.create(user_id: @current_user.id, product_id: @product.id, role_id: seller.id, txn_status_id: open.id)
+      
       redirect_to @product, notice: 'Item was successfully created.'
     else
       render action: 'new'
@@ -39,4 +44,3 @@ class ProductsController < ApplicationController
 	    params.require(:product).permit(:avatar, :name, :description, :price)
 	  end
 end
-
