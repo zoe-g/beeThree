@@ -6,7 +6,6 @@ class UsersProductsController < ApplicationController
 
     buyer = Role.find_by(name: 'Buyer')
 		buyer_txn = UsersProducts.create(user_id: @current_user.id, product_id: params[:id], role_id: buyer.id, txn_status_id: pending.id)
-
 		seller_txn = buyer_txn.transact_with
 		seller_txn.update(txn_status_id: pending.id)
 
@@ -34,9 +33,15 @@ class UsersProductsController < ApplicationController
 		open = TxnStatus.find_by(name: 'Listed')
 		cancelled = TxnStatus.find_by(name: 'Sale Cancelled')
 
+		binding.pry
 		seller_txn = UsersProducts.find(params[:id])
 		seller_txn.update(txn_status_id: open.id)
+<<<<<<< HEAD
 
+=======
+		binding.pry
+		#need a more direct way of getting this from the json request of which txn.id they're declining? could be more than one buyer_txn in pending state
+>>>>>>> b18688bae850330cc957abe51505586a4e827c5d
 		buyer_txn = seller_txn.transact_with
 		buyer_txn.update(txn_status_id: cancelled.id)
 

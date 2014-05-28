@@ -15,6 +15,5 @@ Rails.application.routes.draw do
   post 'decline/:id', to: 'users_products#seller_decline_offer', as: 'decline'
 
 	#venmo webhook auth (temp)
-	get 'webhook_url', to: 'users#webhook_verify'
-  
+	get 'webhook_url', to: 'users#webhook_verify'  
 end
