@@ -16,5 +16,5 @@ Rails.application.routes.draw do
 
 	#venmo webhook auth (temp)
 	get 'webhook_url', to: 'users#webhook_verify'
-  
+
 end
