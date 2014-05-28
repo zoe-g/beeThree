@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  attr_accessor :avatar, :name, :description, :price
 
 	def index
     @products = Product.all
