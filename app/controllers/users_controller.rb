@@ -14,9 +14,15 @@ class UsersController < ApplicationController
 	def update
 	end
 
+<<<<<<< HEAD
   #venmo webhook auth (temp)
   def webhook_verify
     render :text => params[:venmo_challenge].to_s
   end
 
+=======
+  def new
+
+  end
+>>>>>>> updated root route to user#new to allow user to sign-in/up before viewing the products#index page.
 end

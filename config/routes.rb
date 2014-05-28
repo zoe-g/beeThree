@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  root to: 'products#index'
   resources :products
-  resources :users, only: [:index, :show, :create, :update]
+  resources :users, only: [:index, :show, :create, :update, :new]
 
+  #updated root route to user#new to allow user to sign-in/up before viewing the products#index page.
+  root to: 'users#new'
   #facebook login
   match 'auth/:provider/callback', to: 'sessions#create', via: 'get'
   match 'auth/failure', to: redirect('/'), via: 'get'
@@ -16,5 +17,5 @@ Rails.application.routes.draw do
 
 	#venmo webhook auth (temp)
 	get 'webhook_url', to: 'users#webhook_verify'
-  
+
 end
