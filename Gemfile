@@ -24,6 +24,9 @@ gem 'omniauth-facebook', '~> 1.6.0'
 #koala for facebook Graph API
 gem 'koala'
 
+#typhoeus for venmo API
+gem 'typhoeus', '~> 0.6.8'
+
 # rails gems
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0',          group: :doc

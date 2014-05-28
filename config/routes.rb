@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: 'get'
   match 'signout', to: 'sessions#destroy', as: 'signout', via: 'get'
 
+  #venmo access
+  get 'venmo', to: 'user#venmo_auth'
+
   #transaction flow
   post 'purchase/:id', to: 'users_products#buyer_purchase_intent', as: 'purchase'
   post 'accept/:id', to: 'users_products#seller_accept_offer', as: 'accept'
