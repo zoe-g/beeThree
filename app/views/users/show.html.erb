@@ -34,7 +34,7 @@
 			<div class="well well-sm txn-status">
 				<strong><%= txn.visible_status %></strong><br>
 				<% unless txn.txn_status.open? %>
-				<%= txn.status_preposition+' '+txn.transact_with.first_name+' '+txn.transact_with.last_name %><br>
+				<%= txn.status_preposition+' '+txn.transact_with.user.first_name+' '+txn.transact_with.user.last_name %><br>
 				<% end %>
 				as of <%= txn.updated_at.to_date.to_formatted_s(:long) %>
 			</div>
@@ -42,13 +42,11 @@
 			<!-- pending-seller-buttons shown only when role=seller and txn_status=pending -->
 			<% if txn.seller? && txn.txn_status.pending? %>
 			<div class="align-buttons-to-bottom pending-seller-buttons">
-				<button type="button" class="btn btn-success">Approve Sale</button>
-				<button type="button" class="btn btn-danger">Decline Sale</button>
+				<%= button_to "Approve Sale", accept_path(txn), data: {confirm: "Please confirm. You are selling your #{txn.product.name} to #{txn.transact_with.user.first_name}."}, method: :post, class: "btn btn-success" %>
+				<%= button_to "Decline Sale", decline_path(txn), data: {confirm: "Are you sure you don't want to sell your #{txn.product.name} to #{txn.transact_with.user.first_name}?"}, method: :post, class: "btn btn-danger" %>
 			</div>
 			<% end %>
 		</div>
-
-<!-- TO DO: set javascript to process payment and adjust statuses when Accept or Decline is clicked -->
 
 	</div>
 </div>
