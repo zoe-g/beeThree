@@ -63,10 +63,6 @@ ActiveRecord::Schema.define(version: 20140528215829) do
     t.string   "full_name"
     t.string   "location"
     t.string   "image"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   create_table "users_products", force: true do |t|
