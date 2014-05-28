@@ -20,5 +20,16 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+  end
+
+  def get_friends
+    friends = self.facebook.get_connection("#{self.uid}", "friends")
+    return friends
+  end
+
 end
+
 

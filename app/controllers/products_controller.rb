@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 	def index
     @products = Product.all
     # TODO: only pull in items with 'Listed' in the seller's txn_status (methods only can handle one pending request at a time currently)
+    @friends = @current_user.get_friends
 	end
 
 	def new

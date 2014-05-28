@@ -19,4 +19,9 @@ class UsersController < ApplicationController
     render :text => params[:venmo_challenge].to_s
   end
 
+  #updated root route to user#new to allow user to sign-in/up before viewing the products#index page.
+  def new
+
+  end
+
 end

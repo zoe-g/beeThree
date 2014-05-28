@@ -1,3 +1,5 @@
+<%= @friends.inspect %>
+
 <% @products.each do |product| %>
 
 <div class="panel panel-success user-txn">
@@ -18,8 +20,10 @@
 				<button type="button" class="btn btn-xs btn-default">View Listing</button>
 				<%= button_to "Buy #{product.seller.first_name}'s #{product.name}", purchase_path(product), data: {confirm: "Please confirm you want to buy this from #{product.name} from #{product.seller.first_name}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %>
 			</div>
-		</div>
-
+	</div>
 </div>	
 
 <% end %>
+
+
+

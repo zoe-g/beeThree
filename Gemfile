@@ -21,6 +21,9 @@ gem 'handlebars_assets', '~> 0.15'
 # facebook auth
 gem 'omniauth-facebook', '~> 1.6.0'
 
+#koala for facebook Graph API
+gem 'koala'
+
 # rails gems
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0',          group: :doc
