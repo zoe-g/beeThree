@@ -2,9 +2,7 @@ class ProductsController < ApplicationController
   attr_accessor :avatar, :name, :description, :price
 
 	def index
-    @products = Product.all
-    # TODO: only pull in items with 'Listed' in the seller's txn_status (methods only can handle one pending request at a time currently)
-    @friends = @current_user.get_friends
+    @friends_sales = @current_user.friends_sales
 	end
 
 	def new
