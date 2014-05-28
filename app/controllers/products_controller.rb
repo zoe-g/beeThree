@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 	def index
     @products = Product.all
     # TODO: only pull in items with 'Listed' in the seller's txn_status (methods only can handle one pending request at a time currently)
+    @friends = get_friends
 	end
 
 	def new
@@ -43,4 +44,11 @@ class ProductsController < ApplicationController
 	  def product_params
 	    params.require(:product).permit(:avatar, :name, :description, :price)
 	  end
+
+    def get_friends
+    u = current_user
+    uid = u.uid
+    friends = u.facebook.get_connection("#{uid}", "friends")
+    return friends
+  end
 end
