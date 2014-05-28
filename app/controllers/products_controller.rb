@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
       
       redirect_to @product, notice: 'Item was successfully created.'
     else
+      #redirect_to new
       render action: 'new'
     end
   end

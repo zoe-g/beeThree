@@ -8,9 +8,6 @@ class UsersProducts < ActiveRecord::Base
 	def transact_with
 		cancelled = TxnStatus.find_by(name: 'Sale Cancelled')
 		mirror_transaction = UsersProducts.where(product_id: self.product_id).where.not(role_id: self.role_id).where.not(txn_status_id: cancelled.id).first
-		unless mirror_transaction.nil?
-			mirror_user = User.find(mirror_transaction.user_id)
-		end
 		# TODO: make the user lookup separate from this model for status_updates on txns
 	end
 

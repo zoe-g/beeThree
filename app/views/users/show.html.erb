@@ -42,8 +42,9 @@
 			<!-- pending-seller-buttons shown only when role=seller and txn_status=pending -->
 			<% if txn.seller? && txn.txn_status.pending? %>
 			<div class="align-buttons-to-bottom pending-seller-buttons">
-				<button type="button" class="btn btn-success">Approve Sale</button>
-				<button type="button" class="btn btn-danger">Decline Sale</button>
+				<%#= button_to "Approve Sale", decline_path(txn), data: {confirm: "are you sure?"}, method: :post, class: "btn btn-danger" %>
+
+				<%= button_to "Decline Sale", decline_path(txn), data: {confirm: "are you sure?"}, method: :post, class: "btn btn-danger" %>
 			</div>
 			<% end %>
 		</div>
