@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
   resources :products
-  resources :users, only: [:show, :create, :update]
+  resources :users, only: [:index, :show, :create, :update]
 
   #facebook login
   match 'auth/:provider/callback', to: 'sessions#create', via: 'get'

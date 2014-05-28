@@ -10,4 +10,10 @@ class Product < ActiveRecord::Base
   validates :description, presence: true, length: {minimum: 2, maximum: 200}
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 3000 }
 
+  def seller
+  	seller_role = Role.find_by(name: 'Seller')
+  	seller_txn = UsersProducts.where(product_id: self.id).where(role_id: seller_role.id).first
+  	seller = seller_txn.user
+  end
+
 end
