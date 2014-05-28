@@ -1,10 +1,12 @@
 class Product < ActiveRecord::Base
 
-  has_many :users, through: :users_products
-  belongs_to :status
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  
+  has_many :users, through: :users_products
+  belongs_to :status
+
 
   validates :name, presence: true, length: {minimum: 2, maximum: 50}
   validates :description, presence: true, length: {minimum: 2, maximum: 200}
