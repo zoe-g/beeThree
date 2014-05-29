@@ -21,6 +21,23 @@ class User < ActiveRecord::Base
     end
   end
 
+  def add_venmo(code)
+    response = Typhoeus.post("https://api.venmo.com/v1/oauth/access_token", params: { client_id: ENV['VENMO_CLIENT_ID'], code: code, client_secret: ENV['VENMO_CLIENT_SECRET']})
+    response_parsed = JSON.parse(response.body)
+    # TODO: handle error response
+
+    token = response_parsed['access_token']
+    expiry = DateTime.now + 60.days
+    token_type = response_parsed['token_type']
+    refresh = response_parsed['refresh_token']
+    venmo_id = response_parsed['user']['id']
+    venmo_email = response_parsed['user']['email']
+
+    self.update(venmo_access_token: token, venmo_expires_at: expiry, venmo_token_type: token_type, venmo_refresh_token: refresh, venmo_id: venmo_id,  venmo_email: venmo_email)
+    #TODO: check that tokens were not nil and were saved, return response to controller
+
+  end
+
   def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end

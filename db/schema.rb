@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528215829) do
+ActiveRecord::Schema.define(version: 20140529062315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,12 @@ ActiveRecord::Schema.define(version: 20140528215829) do
     t.string   "full_name"
     t.string   "location"
     t.string   "image"
+    t.string   "venmo_access_token"
+    t.datetime "venmo_expires_at"
+    t.string   "venmo_token_type"
+    t.string   "venmo_refresh_token"
+    t.string   "venmo_id"
+    t.string   "venmo_email"
   end
 
   create_table "users_products", force: true do |t|
@@ -78,5 +84,17 @@ ActiveRecord::Schema.define(version: 20140528215829) do
   add_index "users_products", ["role_id"], name: "index_users_products_on_role_id", using: :btree
   add_index "users_products", ["txn_status_id"], name: "index_users_products_on_txn_status_id", using: :btree
   add_index "users_products", ["user_id"], name: "index_users_products_on_user_id", using: :btree
+
+  create_table "venmo_charges", force: true do |t|
+    t.string   "payment_id"
+    t.string   "payment_status"
+    t.datetime "payment_created_at"
+    t.datetime "payment_completed_at"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "venmo_charges", ["product_id"], name: "index_venmo_charges_on_product_id", using: :btree
 
 end
