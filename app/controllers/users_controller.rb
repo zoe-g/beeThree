@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
-	
+
+  skip_before_filter :signed_in_user, only: [:new]
+  
 	def index
 		redirect_to user_path(@current_user.id)
 	end
 
 	def show
-		@all_transactions = UsersProducts.where(user_id: params[:id])
+		@all_transactions = UsersProducts.where(user_id: current_user.id)
 	end
 
 	def new
