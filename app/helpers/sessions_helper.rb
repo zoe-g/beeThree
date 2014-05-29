@@ -9,4 +9,28 @@ module SessionsHelper
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+# user authorization
+  def sign_in(user)
+    cookies.permanent[:oauth_token] = user.oauth_token
+
+    current_user = user
+  end
+
+  def signed_in? 
+    !current_user.nil?
+  end
+
+  def signed_in_user
+    unless signed_in?
+      session[:return_to] = request.url
+
+      redirect_to root_url, notice: "Please sign in."
+    end
+  end
+
+  def sign_out 
+    @current_user = nil
+    cookies.delete(:oauth_token)
+  end
+
 end

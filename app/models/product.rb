@@ -1,4 +1,4 @@
-class Product < ActiveRecord::Base
+ class Product < ActiveRecord::Base
 
   has_many :users, through: :users_products
   belongs_to :status
