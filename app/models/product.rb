@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
 
   has_many :users, through: :users_products
+  has_one :venmo_charge
   belongs_to :status
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
