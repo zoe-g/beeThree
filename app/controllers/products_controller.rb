@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  attr_accessor :avatar, :name, :description, :price
+
 
 	def index
     @friends_sales = @current_user.friends_sales
@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
       UsersProducts.create(user_id: @current_user.id, product_id: @product.id, role_id: seller.id, txn_status_id: open.id)
       redirect_to @product, notice: 'Item was successfully created.'
     else
+
       redirect_to new_product_path
     end
   end
