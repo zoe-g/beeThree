@@ -1,12 +1,40 @@
+$gray-dark: #69686E;
+$brand-warning: #ECD376;
+$state-warning-bg: #ECD376;
+$state-info-bg: #69686E;
+
 @import "bootstrap";
+
+//brand colors
+//bee-gray: #69686E
+//bee-yellow: #ECD376
+//bee-gray-light: lighten(#69686E, 15%);
+//bee-yellow-light: lighten(#ECD376, 15%);
 
 html {
 	position: relative;
 }
 
 body {
-	margin-top: 50px;
-	padding: 10px
+	margin-top: 60px;
+}
+
+.navbar-brand {
+	margin: 2%;
+	padding: 0px;
+}
+
+.navbar-brand img {
+	max-height: 96%;
+}
+
+.navbar-right img {
+	margin: 2px;
+	max-height: 45px;
+	border-radius: 100%;
+	border-style: solid;
+	border-color: #69686E;
+	border-width: 2px;
 }
 
 .txn-product-image {
@@ -25,15 +53,4 @@ body {
 .align-buttons-to-bottom {
 	position: absolute;
 	bottom: 0px;
-}
-
-/*navbar styling*/
-#facebook_image {
-	max-width: 45px; 
-	margin-top: 7px;
-	margin-bottom: 7px;
-	border-radius: 49px;
-	border-style: solid;
-	border-color: grey;
-	border-width: 2px;
 }

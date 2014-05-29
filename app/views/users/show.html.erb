@@ -1,9 +1,9 @@
 <% @all_transactions.each do |txn| %>
 
 <% if txn.seller? %>
-<div class="panel panel-info user-txn">
+<div class="panel panel-warning user-txn">
 <% else %>
-<div class="panel panel-success user-txn">
+<div class="panel panel-info user-txn">
 <%end %>
 
   <div class="panel-heading">
