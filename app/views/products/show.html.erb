@@ -6,7 +6,7 @@
   <div>$<%= @product.price %>.00</div>
   <div><%=  image_tag @product.avatar.url(:medium) %></div>
   <div><button type="button" class = "btn btn-warning" id="edit">Edit</button></div>
-  <div><%= button_to "Buy from #{@product.seller.first_name}", purchase_path(@product), data: {confirm: "Please confirm you want to buy this from #{@product.name} from #{@product.seller.first_name}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %></div>
+  <div><%= button_to "Buy from #{@product.seller.first_name}", purchase_path(@product), data: {confirm: "Please confirm you want to buy this #{@product.name.downcase} from #{@product.seller.first_name}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %></div>
 </div>
 
 

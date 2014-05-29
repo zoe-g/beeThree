@@ -12,7 +12,7 @@ class UsersProductsController < ApplicationController
 
 		# TODO: kick-off sidekiq worker sending email to seller!
 
-		redirect_to users_path, notice: "We'll let #{seller_txn.user.first_name} know you're ready to buy the #{seller_txn.product.name}. Keep an eye out for an email from us once #{seller_txn.user.first_name} confirms."
+		redirect_to users_path, notice: "We'll let #{seller_txn.user.first_name} know you're ready to buy the #{seller_txn.product.name.downcase}. Keep an eye out for an email from us once #{seller_txn.user.first_name} confirms."
 	end
 
 	def seller_accept_offer
@@ -39,7 +39,7 @@ class UsersProductsController < ApplicationController
 
 		# TODO: kick-off sidekiq worker sending email to buyer
 
-		redirect_to users_path, notice: "Sold! We've sent a Venmo charge to #{buyer_txn.user.first_name}. Please get in touch with them about delivering the #{seller_txn.product.name}."
+		redirect_to users_path, notice: "Sold! We've sent a Venmo charge to #{buyer_txn.user.first_name}. Please get in touch with them about delivering the #{seller_txn.product.name.downcase}."
 	end
 
 	def seller_decline_offer
@@ -54,7 +54,7 @@ class UsersProductsController < ApplicationController
 
 		# TODO: kick-off sidekiq worker sending email to buyer
 
-		redirect_to users_path, notice: "We'll let #{buyer_txn.user.first_name} know. In the meantime, #{seller_txn.product.name} is back on the market."
+		redirect_to users_path, notice: "We'll let #{buyer_txn.user.first_name} know. In the meantime, your #{seller_txn.product.name.downcase} is back on the market."
 	end
 
 	def venmo_confirm_payment
