@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_filter :current_user
+  before_filter :signed_in_user
 end
