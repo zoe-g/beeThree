@@ -7,6 +7,9 @@
   <div><%=  image_tag @product.avatar.url(:medium) %></div>
   <div><button type="button" class = "btn btn-warning" id="edit">Edit</button></div>
   <div><%= button_to "Buy from #{@product.seller.first_name}", purchase_path(@product), data: {confirm: "Please confirm you want to buy this from #{@product.name} from #{@product.seller.first_name}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %></div>
+  <!-- new for destroy method branch -->
+  <div><%= link_to "delete", @product, method: :delete, data: {confirm: "are you sure you want to delete?"}, :class => "btn btn-danger btn-xs" %></div>
+  <!-- ^^new for destroy method branch -->
 </div>
 
 
