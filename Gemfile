@@ -6,6 +6,8 @@ gem 'rails', '4.1.1'
 gem 'pg'
 gem 'aws-sdk'
 gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'sidekiq'
+
 
 # front-end gems
 gem 'sass-rails', '~> 4.0.3'
@@ -39,15 +41,15 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'better_errors', '~> 1.1.0'
 	gem 'binding_of_caller', '~> 0.7.2'
+  # gem 'unicorn-rails'
 end
 
 group :production do
 	gem 'rails_12factor'
 end
 
-
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
