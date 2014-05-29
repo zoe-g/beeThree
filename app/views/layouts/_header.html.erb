@@ -20,7 +20,7 @@
           <ul class="nav navbar-nav navbar-right">
             
           	<% if current_user %> 
-              <li><img style="max-width:100px; margin-top: 7px;" src=<%= current_user.image %>></li>
+              <li><img src=<%= current_user.image %> id="facebook_image"></li>
           		<li><a href="/users"><%= current_user.full_name %></a></li>
   						<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
 						<% else %>
