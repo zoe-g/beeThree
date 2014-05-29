@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 # new for destroy_method branch
   def destroy
     Product.find(params[:id]).destroy
-    redirect_to root_path
+    redirect_to products_path
   end
 #^^new for destroy_method branch
 
