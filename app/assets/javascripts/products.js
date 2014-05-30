@@ -5,18 +5,18 @@
 //edit product
 
 $( document ).ready(function(){
-	$(".field").hide();
+	$("#edit-form").hide();
 //clicking edit and cancel to hide and show form for product update
 var showing = false;
   	$("#edit").on('click', function(){
   		if(showing){
-  			$(".field").hide();
-	  		$(this).html("edit");
+  			$("#edit-form").hide();
+	  		$(this).html("Edit This Listing");
 	  		showing = false; 
 		}
 		else{
-			$(".field").show();
-	  		$(this).html("cancel");
+			$("#edit-form").show();
+	  		$(this).html("Cancel");
 	  		showing = true;
 		}
   });

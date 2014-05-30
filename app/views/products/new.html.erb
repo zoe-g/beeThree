@@ -1,20 +1,45 @@
-<h1>New product page!</h1>
+<div class="panel panel-default user-txn">
+  
+  <div class="panel-heading">
+    <h4><span>New Product</span>
+  </div>
 
-<div>
-	<%= form_for(@product) do |f| %>
+  <div class="panel-body">
+    <div class="col-xs-9">
+      <form role="form" class="col-xs-12">
+        <%= form_for(@product) do |f| %>
 
-	<%= f.label :name %>
-  <div><%= f.text_field :name %></div>
+        <div class="form-group">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+        </div>
 
-  <%= f.label :description %>
-  <div><%= f.text_field :description %></div>
+        <div class="form-group">
+          <%= f.label :description %><br>
+          <%= f.text_field :description %>
+        </div>
 
-  <%= f.label :price %>
-  <div><%= f.text_field :price %></div>
+        <div class="form-group">
+          <%= f.label :price %><br>
+          <%= f.number_field :price %>
+        </div>
 
-  <%#= f.label :avatar  %>
-  <div><%= f.file_field :avatar %></div>
+        <div class="form-group">
+          <%= f.file_field :avatar %><br>
+        </div>
 
-  <div><%= f.submit %></div>
-  <% end %>
+        <%= f.submit %>
+
+        <% end %>
+      </form>
+    </div>
+
+    <div class="col-xs-3 product-options">
+      <div class="well well-sm seller-friend">
+        <span class="pull-left friend-name"><%= @current_user.full_name %></span>
+        <span class="pull-right"><%= image_tag @current_user.image, class: 'img-rounded img-responsive friend-image' %></span>
+      </div> 
+    </div>
+
+  </div>
 </div>
