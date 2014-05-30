@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  # skip_before_filter :signed_in_user, only: [:new]
+  skip_before_filter :signed_in_user, only: [:new]
+  skip_before_filter :venmo_check, only: [:new, :venmo, :venmo_auth]
   
 	def index
 		redirect_to user_path(@current_user.id)
