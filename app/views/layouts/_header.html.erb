@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="bar">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/products">Browse</a></li>
-            <li><a href="/users">History</a></li>
+            <li><a href="/users">Listings & Purchases</a></li>
             <% if current_user %>
             <li><a href="/products/new">Add Product</a></li>
             <% end %>
@@ -20,7 +20,7 @@
           <ul class="nav navbar-nav navbar-right">
             
           	<% if current_user %> 
-              <li><img src=<%= current_user.image %> class="image-responsive"></li>
+              <li><%= image_tag current_user.image, class: 'img-circle img-responsive' %></li>
           		<li><a href="/users"><%= current_user.full_name %></a></li>
   						<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
 						<% else %>

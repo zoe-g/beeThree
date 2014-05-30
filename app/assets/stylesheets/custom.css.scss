@@ -35,15 +35,19 @@ body {
 .navbar-right img {
 	margin: 2px;
 	max-height: 45px;
-	border-radius: 100%;
 	border-style: solid;
 	border-color: #69686E;
 	border-width: 2px;
 }
 
+.product-show-image {
+	height: 400px;
+	width: 400px;
+}
+
 .txn-product-image {
 	height: 200px;
-	max-width: auto;
+	width: 200px;
 }
 
 .txn-product-info {
@@ -52,6 +56,29 @@ body {
 
 .txn-status-options {
 	height: 200px;
+}
+
+.product-info {
+	height: 400px;
+}
+
+.product-options {
+	height: 400px;
+}
+
+.seller-friend {
+	height: 75px;
+	min-width: 100px;
+}
+
+.friend-name {
+	margin-top: 15px;
+}
+
+.seller-friend img {
+	border-style: solid;
+	border-color: #69686E;
+	border-width: 1px;
 }
 
 .align-buttons-to-bottom {

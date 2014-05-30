@@ -22,18 +22,22 @@
 	  	<!-- edit-delete-buttons shown only when role=seller -->
 	  	<% if txn.seller? %>
 	  	<div class="align-buttons-to-bottom edit-delete-buttons">
-	  		<span class="pull-left"><%= button_to "Edit", product_path(txn.product), method: :get, class: "btn btn-warning" %></span>
+	  		<%= button_to "Edit", product_path(txn.product), method: :get, class: "btn btn-warning" %>
 			</div>
 			<% end %>
 		</div>
 
 		<div class="col-xs-3 txn-status-options">
-			<div class="well well-sm txn-status">
-				<strong><%= txn.visible_status %></strong><br>
-				<% unless txn.txn_status.open? %>
-				<%= txn.status_preposition+' '+txn.transact_with.user.first_name+' '+txn.transact_with.user.last_name %><br>
-				<% end %>
-				as of <%= txn.updated_at.to_date.to_formatted_s(:long) %>
+			<div class="well well-sm seller-friend">
+				<span class="pull-left">
+					<strong><%= txn.visible_status %></strong><br>
+					<% unless txn.txn_status.open? %>
+					<%= txn.status_preposition+' '+txn.transact_with.user.first_name+' '+txn.transact_with.user.last_name %><br>
+					<% end %>
+					as of <%= txn.updated_at.to_date.to_formatted_s(:long) %>
+				</span>
+				<span class="pull-right"><%= image_tag txn.transact_with.user.image, class: 'img-rounded img-responsive friend-image' %></span>
+
 			</div>
 
 			<!-- pending-seller-buttons shown only when role=seller and txn_status=pending -->

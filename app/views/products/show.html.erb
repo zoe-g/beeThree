@@ -1,31 +1,60 @@
-<h1>product show page!</h1>
+<div class="panel panel-default user-txn">
+  
+  <div class="panel-heading">
+    <h4><span><%= @product.name %></span>
+    <span class="pull-right">$<%= @product.price %></span></h4>
+  </div>
 
-<div>
-  <div><%= @product.name %></div>
-  <div><%= @product.description %></div>
-  <div>$<%= @product.price %>.00</div>
-  <div><%=  image_tag @product.avatar.url(:medium) %></div>
-  <div><button type="button" class = "btn btn-warning" id="edit">Edit</button></div>
-  <div><%= button_to "Buy from #{@product.seller.first_name}", purchase_path(@product), data: {confirm: "Please confirm you want to buy this #{@product.name.downcase} from #{@product.seller.first_name}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %></div>
-  <div><%= link_to "Delete", @product, method: :delete, data: {confirm: "Are you sure you want to delete your #{@product.name.downcase}?"}, :class => "btn btn-danger btn-xs" %></div>
-</div>
+  <div class="panel-body">
+    <span class="col-xs-3">
+      <%= image_tag @product.avatar.url(:medium), class: "img-rounded img-responsive pull-left product-show-image" %>
+    </span>
+  
+    <div class="col-xs-6 product-info">
+      <p><%= @product.description %></p>
 
+      <div class="align-buttons-to-bottom">
+      <% if current_user == @product.seller %>
+        <button type="button" class = "btn btn-warning" id="edit">Edit This Listing</button>
+      <% else %>
+        <%= button_to "Buy #{@product.seller.first_name}'s #{@product.name}", purchase_path(@product), data: {confirm: "Please confirm you want to buy #{@product.seller.first_name}'s #{@product.name.downcase}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %>
+      <% end %>
+      </div>
+    </div>
 
-<div class="field">
-  <%= form_for(@product) do |f| %>
+    <div class="col-xs-3 product-options">
+      <div class="well well-sm seller-friend">
+        <span class="pull-left friend-name"><%= @product.seller.full_name %></span>
+        <span class="pull-right"><%= image_tag @product.seller.image, class: 'img-rounded img-responsive friend-image' %></span>
+      </div>
+      
+      <form role="form" class="col-xs-12" id="edit-form">
+        <%= form_for(@product) do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+        <div class="form-group">
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+        </div>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+        <div class="form-group">
+          <%= f.label :description %><br>
+          <%= f.text_field :description %>
+        </div>
 
-  <%= f.label :price %>
-  <%= f.text_field :price %>
+        <div class="form-group">
+          <%= f.label :price %><br>
+          <%= f.number_field :price %>
+        </div>
 
-  <%#= f.label :avatar  %>
-  <%= f.file_field :avatar %>
+        <div class="form-group">
+          <%= f.file_field :avatar %><br>
+        </div>
 
-  <%= f.submit %>
-  <% end %>
+        <%= f.submit %>
+
+        <% end %>
+      </form>
+    </div>
+
+  </div>
 </div>

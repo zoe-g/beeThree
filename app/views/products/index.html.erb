@@ -14,11 +14,19 @@
 	
 		<div class="col-xs-6 txn-product-info">
 	  	<p><%= product.description %></p>
+	  </div>
+
+	  <div class="col-xs-3 txn-status-options">
+			<div class="well well-sm seller-friend">
+				<span class="pull-left friend-name"><%= product.seller.full_name %></span>
+				<span class="pull-right"><%= image_tag product.seller.image, class: 'img-rounded img-responsive friend-image' %></span>
+			</div>
 
 	  	<div class="align-buttons-to-bottom">
-				<%= button_to "View Listing", product_path(product), method: :get, class: "btn btn-warning" %>
-				<%= button_to "Buy #{product.seller.first_name}'s #{product.name}", purchase_path(product), data: {confirm: "Please confirm you want to buy #{product.seller.first_name}'s #{product.name.downcase}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %>
+				<span class="pull-left"><%= button_to "View Listing", product_path(product), method: :get, class: "btn btn-warning" %></span>
+				<span class="pull-right"><%= button_to "Buy This Item", purchase_path(product), data: {confirm: "Please confirm you want to buy #{product.seller.first_name}'s #{product.name.downcase}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %></span>
 			</div>
+		</div>
 
 	</div>
 </div>	
