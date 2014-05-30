@@ -3,14 +3,9 @@ class SessionsController < ApplicationController
   skip_before_filter :signed_in_user, only: [:create, :delete]
 
   def create
-    if
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     redirect_to products_url
-    else
-      redirect_to root
-    end
-
   end
 
   def destroy
