@@ -32,7 +32,7 @@ module SessionsHelper
     unless signed_in?
       session[:return_to] = request.url
 
-      redirect_to root_url, notice: "Please sign in."
+      redirect_to new_user_path, notice: "Please sign in."
     end
   end
 

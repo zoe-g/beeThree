@@ -2,9 +2,7 @@ class ProductsController < ApplicationController
 
 
 	def index
-
     @friends_sales = @current_user.friends_sales
-    
 	end
 
 	def new
