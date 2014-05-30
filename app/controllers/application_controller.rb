@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
 
   before_filter :current_user
   before_filter :signed_in_user
+  before_filter :venmo_check
 end
