@@ -10,6 +10,7 @@ class UsersProductsController < ApplicationController
 		seller_txn.update(txn_status_id: pending.id)
 
 		BuyerOfferWorker.perform_async(buyer_txn.user.email, buyer_txn.user.first_name)
+		SellerOfferWorker.perform_async(seller_txn.user.email, seller_txn.user.first_name)
 
 		redirect_to users_path, notice: "We'll let #{seller_txn.user.first_name} know you're ready to buy the #{seller_txn.product.name.downcase}. Keep an eye out for an email from us once #{seller_txn.user.first_name} confirms."
 	end
