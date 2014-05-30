@@ -3,7 +3,7 @@
 <% if txn.seller? %>
 <div class="panel panel-info user-txn">
 <% else %>
-<div class="panel panel-success user-txn">
+<div class="panel panel-warning user-txn">
 <%end %>
 
   <div class="panel-heading">
@@ -13,7 +13,7 @@
 
   <div class="panel-body">
   	<span class="col-xs-3">
-			<img class="img-rounded img-responsive pull-left txn-product-image" src="<%= txn.product.image_url %>" />
+  		<%= image_tag txn.product.avatar.url(:medium), class: "img-rounded img-responsive pull-left txn-product-image" %>
 		</span>
 
 		<div class="col-xs-6 txn-product-info">
@@ -22,13 +22,10 @@
 	  	<!-- edit-delete-buttons shown only when role=seller -->
 	  	<% if txn.seller? %>
 	  	<div class="align-buttons-to-bottom edit-delete-buttons">
-				<button type="button" class="btn btn-xs btn-default">Edit Listing</button>
-				<button type="button" class="btn btn-xs btn-default">Delete Listing</button>
+	  		<span class="pull-left"><%= button_to "Edit", product_path(txn.product), method: :get, class: "btn btn-warning" %></span>
 			</div>
 			<% end %>
 		</div>
-
-<!-- TODO: program edit/delete buttons for specific product listing -->
 
 		<div class="col-xs-3 txn-status-options">
 			<div class="well well-sm txn-status">
@@ -42,8 +39,8 @@
 			<!-- pending-seller-buttons shown only when role=seller and txn_status=pending -->
 			<% if txn.seller? && txn.txn_status.pending? %>
 			<div class="align-buttons-to-bottom pending-seller-buttons">
-				<%= button_to "Approve Sale", accept_path(txn), data: {confirm: "Please confirm. You are selling your #{txn.product.name.downcase} to #{txn.transact_with.user.first_name}."}, method: :post, class: "btn btn-success" %>
-				<%= button_to "Decline Sale", decline_path(txn), data: {confirm: "Are you sure you don't want to sell your #{txn.product.name.downcase} to #{txn.transact_with.user.first_name}?"}, method: :post, class: "btn btn-danger" %>
+				<span class="pull-left"><%= button_to "Approve Sale", accept_path(txn), data: {confirm: "Please confirm. You are selling your #{txn.product.name.downcase} to #{txn.transact_with.user.first_name}."}, method: :post, class: "btn btn-success" %></span>
+				<span class="pull-right"><%= button_to "Decline Sale", decline_path(txn), data: {confirm: "Are you sure you don't want to sell your #{txn.product.name.downcase} to #{txn.transact_with.user.first_name}?"}, method: :post, class: "btn btn-danger" %></span>
 			</div>
 			<% end %>
 		</div>

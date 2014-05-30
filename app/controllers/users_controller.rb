@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_filter :signed_in_user, only: [:new]
+  # skip_before_filter :signed_in_user, only: [:new]
   
 	def index
 		redirect_to user_path(@current_user.id)

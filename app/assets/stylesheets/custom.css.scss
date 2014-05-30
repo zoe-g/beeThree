@@ -1,16 +1,48 @@
+$gray-dark: #69686E;
+$brand-warning: #ECD376;
+$btn-warning-bg: darken(#ECD376, 15%);
+
+$state-warning-bg: #ECD376;
+$panel-warning-text: #69686E;
+$state-info-bg: #69686E;
+$panel-info-text: #fff;
+
 @import "bootstrap";
+
+//brand colors
+//bee-gray: #69686E
+//bee-yellow: #ECD376
+//bee-gray-light: lighten(#69686E, 15%);
+//bee-yellow-light: lighten(#ECD376, 15%);
 
 html {
 	position: relative;
 }
 
 body {
-	margin-top: 50px;
-	padding: 10px
+	margin-top: 60px;
+}
+
+.navbar-brand {
+	margin: 2%;
+	padding: 0px;
+}
+
+.navbar-brand img {
+	max-height: 96%;
+}
+
+.navbar-right img {
+	margin: 2px;
+	max-height: 45px;
+	border-radius: 100%;
+	border-style: solid;
+	border-color: #69686E;
+	border-width: 2px;
 }
 
 .txn-product-image {
-	max-height: 200px;
+	height: 200px;
 	max-width: auto;
 }
 
@@ -27,13 +59,140 @@ body {
 	bottom: 0px;
 }
 
-/*navbar styling*/
-#facebook_image {
-	max-width: 45px; 
-	margin-top: 7px;
-	margin-bottom: 7px;
+.btn {
+	margin: 5px;
+}
+
+.fb{
+	background: lighten(#ECD376, 25%);
+	margin:0px auto;
+	width: 150px;
+}
+
+.header-image {
+	background: url(http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0123/4144/rrRepeatable_Backgrounds--Geometric_and_Abstract_Patterns-059_shop_preview.jpg);
+	background-position: top;
+	height: auto;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+.headline {
+	padding: 120px 0;
+}
+
+.headline > .container > h1 {
+	font-size: 130px;
+	background: #ffffff;
+	background: rgba(255, 255, 255, 0.75);
+}
+
+.headline > .container > h2 {
+	font-size: 77px;
+	background: #ffffff;
+	background: rgba(255, 255, 255, 0.75);
+}
+
+.featurette-divider {
+	margin: 80px 0;
+}
+.featurette {
+	overflow: hidden; 
+	background: #ECD376;
 	border-radius: 49px;
 	border-style: solid;
-	border-color: grey;
+	border-color: #69686E;
 	border-width: 2px;
+}
+
+.featurette-image.pull-left {
+	margin-right: 40px;
+	padding-left: 1%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+.featurette-image.pull-right {
+	margin-left: 40px;
+	padding-right: 1%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.lead {
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.featurette-heading {
+	font-size: 50px;
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+footer {
+	margin: 50px 0;
+}
+
+/* RESPONSIVE CSS */
+
+@media (max-width: 1200px) {
+
+.headline > .container > h1 {font-size: 140px;}
+.headline > .container > h2 {font-size: 63px;}
+.featurette-divider {margin: 50px 0;}
+.featurette-image.pull-left {margin-right: 20px;}
+.featurette-image.pull-right {margin-left: 20px;}
+.featurette-heading {font-size: 35px;}
+
+}
+
+@media (max-width: 991px) {
+
+.headline > .container > h1 {font-size: 105px;}
+.headline > .container > h2 {font-size: 50px;}
+.featurette-divider {margin: 40px 0;}
+.featurette-image {max-width: 50%;}
+.featurette-image.pull-left {margin-right: 10px;}
+.featurette-image.pull-right {margin-left: 10px;}
+.featurette-heading {font-size: 30px;}
+
+}
+
+@media (max-width: 768px) {
+
+.container {margin: 0 15px;}
+.featurette-divider {margin: 40px 0;}
+.featurette-heading {font-size: 25px;}
+
+}
+
+
+@media (max-width: 668px) {
+
+.headline > .container > h1 {font-size: 70px;}
+.headline > .container > h2 {font-size: 32px;}
+.featurette-divider {margin: 30px 0;}
+
+}
+
+@media (max-width: 640px) {
+
+.headline {padding: 75px 0 25px 0;}
+.headline > .container > h1 {font-size: 60px;}
+.headline > .container > h2 {font-size: 30px;}
+
+}
+
+@media (max-width: 375px) {
+
+.featurette-divider {margin: 10px 0;}
+.featurette-image {max-width: 100%;}
+.featurette-image.pull-left {margin-right: 0; margin-bottom: 10px;}
+.featurette-image.pull-right {margin-left: 0; margin-bottom: 10px;}
+
 }

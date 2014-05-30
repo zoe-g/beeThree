@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-  # cm removed for authorization, method below not needed?
+
   before_filter :current_user
 
-  before_filter :signed_in_user
 end
