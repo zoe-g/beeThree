@@ -1,5 +1,6 @@
 $gray-dark: #69686E;
 $brand-warning: #ECD376;
+$btn-warning-bg: darken(#ECD376, 15%);
 
 $state-warning-bg: #ECD376;
 $panel-warning-text: #69686E;
@@ -41,7 +42,7 @@ body {
 }
 
 .txn-product-image {
-	max-height: 200px;
+	height: 200px;
 	max-width: auto;
 }
 
@@ -56,4 +57,8 @@ body {
 .align-buttons-to-bottom {
 	position: absolute;
 	bottom: 0px;
+}
+
+.btn {
+	margin: 5px;
 }
