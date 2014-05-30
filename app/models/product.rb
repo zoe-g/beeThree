@@ -6,7 +6,7 @@
   has_many :users, through: :users_products
   has_one :venmo_charge
   belongs_to :status
-  has_many :users
+  # has_many :users
 
   validates :name, presence: true, length: {minimum: 2, maximum: 50}
   validates :description, presence: true, length: {minimum: 2, maximum: 1000}
