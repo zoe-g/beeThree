@@ -7,6 +7,7 @@ gem 'pg'
 gem 'aws-sdk'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'sidekiq'
+gem 'redis'
 
 
 # front-end gems
