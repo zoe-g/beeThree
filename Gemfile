@@ -41,6 +41,7 @@ group :development, :test do
 	gem 'pry'
 	gem 'rspec-rails'
 	gem 'better_errors', '~> 1.1.0'
+
 	gem 'binding_of_caller', '~> 0.7.2'
   # gem 'unicorn-rails'
 end

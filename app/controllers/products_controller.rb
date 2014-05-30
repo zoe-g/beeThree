@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  include ProductsHelper
+  before_filter :product_check, only: [:show]
 
 	def index
     @friends_sales = @current_user.friends_sales

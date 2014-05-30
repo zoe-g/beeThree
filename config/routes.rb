@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'users#new'
+  root to: 'products#index'
   resources :products
   resources :users, except: [:destroy]
 
