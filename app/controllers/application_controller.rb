@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   # cm removed for authorization, method below not needed?
-  # before_filter :current_user
+  before_filter :current_user
 
   before_filter :signed_in_user
 end

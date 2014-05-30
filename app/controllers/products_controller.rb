@@ -18,8 +18,7 @@ class ProductsController < ApplicationController
       UsersProducts.create(user_id: @current_user.id, product_id: @product.id, role_id: seller.id, txn_status_id: open.id)
       redirect_to @product, notice: 'Item was successfully created.'
     else
-
-      redirect_to new_product_path
+      redirect_to new_product_path, notice: 'Item was NOT created. Please try again.'
     end
   end
 
@@ -33,6 +32,8 @@ class ProductsController < ApplicationController
 
   	if @product.save
   	redirect_to @product
+    else
+    redirect_to @product, notice: 'Item was NOT updated. Please try again.'
   	end
   end
 
