@@ -1,20 +1,23 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery
-//= require bootstrap
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap
 //= require_tree .
-//= require handlebars.runtime
-//= require_tree ./templates
 
+$( document ).ready(function(){
+	$("#edit-form").hide();
+
+	//clicking edit and cancel to hide and show form for product update
+	var showing = false;
+	$("#edit").on('click', function(){
+		if(showing){
+			$("#edit-form").hide();
+			$(this).html("Edit This Listing");
+			showing = false; 
+		}
+		else{
+			$("#edit-form").show();
+			$(this).html("Cancel");
+			showing = true;
+		}
+  });
+});

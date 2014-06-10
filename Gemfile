@@ -19,7 +19,6 @@ gem 'bootstrap-sass', '~> 3.1.1.1'
 # javascript gems
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'handlebars_assets', '~> 0.15'
 
 # facebook auth
 gem 'omniauth-facebook', '~> 1.6.0'

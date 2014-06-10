@@ -1,12 +1,12 @@
 <div class="panel panel-default user-txn">
   
   <div class="panel-heading">
-    <h4><span>New Product</span>
+    <span><h4>New Product</h4></span>
   </div>
 
   <div class="panel-body">
     <div class="col-xs-9">
-      <form role="form" class="col-xs-12">
+      <div role="form" class="col-xs-12">
         <%= form_for(@product) do |f| %>
 
         <div class="form-group">
@@ -31,7 +31,7 @@
         <%= f.submit %>
 
         <% end %>
-      </form>
+      </div>
     </div>
 
     <div class="col-xs-3 product-options">
