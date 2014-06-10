@@ -18,8 +18,8 @@ $( document ).ready(function(){
 
 	//clicking edit and cancel to hide and show form for product update
 	$("#edit-form").hide();
-	$("#edit").on('click', function(){
-		var showing = false;
+	var showing = false;
+	$("#edit").click(function(){
 		if(showing){
 			$("#edit-form").hide();
 			$(this).html("Edit This Listing");

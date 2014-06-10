@@ -6,29 +6,29 @@
   </div>
 
   <div class="panel-body">
-    <span class="col-xs-3">
+    <span class="col-xs-12 col-sm-5">
       <%= image_tag @product.avatar.url(:medium), class: "img-rounded img-responsive pull-left product-show-image" %>
     </span>
   
-    <div class="col-xs-6 product-info">
+    <div class="col-xs-6 col-sm-4 product-info">
       <p><%= @product.description %></p>
-
-      <div class="align-buttons-to-bottom">
-      <% if current_user == @product.seller %>
-        <button type="button" class = "btn btn-warning" id="edit">Edit This Listing</button>
-      <% else %>
-        <%= button_to "Buy #{@product.seller.first_name}'s #{@product.name}", purchase_path(@product), data: {confirm: "Please confirm you want to buy #{@product.seller.first_name}'s #{@product.name.downcase}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %>
-      <% end %>
-      </div>
     </div>
 
-    <div class="col-xs-3 product-options">
+    <div class="col-xs-6 col-sm-3 product-options">
       <div class="well well-sm seller-friend">
         <span class="pull-left friend-name"><%= @product.seller.full_name %></span>
         <span class="pull-right"><%= image_tag @product.seller.image, class: 'img-rounded img-responsive friend-image' %></span>
       </div>
+
+      <div class="buy-edit-button">
+      <% if current_user == @product.seller %>
+        <button type="button" class="btn btn-warning" id="edit">Edit This Listing</button>
+      <% else %>
+        <%= button_to "Buy #{@product.seller.first_name}'s #{@product.name}", purchase_path(@product), data: {confirm: "Please confirm you want to buy #{@product.seller.first_name}'s #{@product.name.downcase}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %>
+      <% end %>
+      </div>
       
-      <div role="form" class="col-xs-12" id="edit-form">
+      <div role="form" id="edit-form">
         <%= form_for @product do |f| %>
 
         <div class="form-group">

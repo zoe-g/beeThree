@@ -41,13 +41,13 @@ body {
 }
 
 .product-show-image {
-	height: 400px;
-	width: 400px;
+	width: 100%;
+	height: auto;
 }
 
 .txn-product-image {
 	height: 200px;
-	width: 200px;
+	width: auto;
 }
 
 .txn-product-info {
@@ -88,6 +88,10 @@ body {
 
 .btn {
 	margin: 5px;
+}
+
+.buy-edit-button .btn {
+	margin: 0px;
 }
 
 .header-image {
