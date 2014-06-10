@@ -90,12 +90,6 @@ body {
 	margin: 5px;
 }
 
-.fb{
-	background: lighten(#ECD376, 25%);
-	margin:0px auto;
-	width: 150px;
-}
-
 .header-image {
 	background: url(http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0123/4144/rrRepeatable_Backgrounds--Geometric_and_Abstract_Patterns-059_shop_preview.jpg);
 	background-position: top;
@@ -105,19 +99,12 @@ body {
 	text-align: center;
 }
 
+.header-image h1 {
+	font-size: 60px;
+}
+
 .headline {
 	padding: 120px 0;
-}
-
-.headline > .container > h1 {
-	font-size: 130px;
-	background: #ffffff;
-	background: rgba(255, 255, 255, 0.75);
-}
-
-.headline > .container > h2 {
-	font-size: 77px;
-	background: #ffffff;
 	background: rgba(255, 255, 255, 0.75);
 }
 
@@ -162,6 +149,7 @@ body {
 }
 
 footer {
+	text-align: center;
 	margin: 50px 0;
 }
 

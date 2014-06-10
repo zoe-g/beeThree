@@ -1,33 +1,31 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/"><%= image_tag("beeThree_1024.png", class: "img-responsive") %></a>
-        </div>
-        <div class="collapse navbar-collapse" id="bar">
-          <ul class="nav navbar-nav">
-
-            <% if current_user %>
-            <li class="active"><a href="/products">Browse</a></li>
-            <li><a href="/users">Listings & Purchases</a></li>
-            <li><a href="/products/new">Add Product</a></li>
-            <% end %>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-          	<% if current_user %> 
-              <li><%= image_tag current_user.image, class: 'img-circle img-responsive' %></li>
-          		<li><a href="/users"><%= current_user.full_name %></a></li>
-  						<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-						<% else %>
-  						<li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
-						<% end %>
-						
-          </ul>
-        </div>
-      </div>
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><%= image_tag("beeThree_1024.png", class: "img-responsive") %></a>
     </div>
+    <div class="collapse navbar-collapse" id="bar">
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+        <li id="products-nav"><a href="/products">Browse</a></li>
+        <li id="listings-nav"><a href="/users">Listings & Purchases</a></li>
+        <li id="new-nav"><a href="/products/new">Add Product</a></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      	<% if current_user %> 
+          <li><%= image_tag current_user.image, class: 'img-circle img-responsive' %></li>
+      		<li><a href="/users"><%= current_user.full_name %></a></li>
+					<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+				<% else %>
+					<li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+				<% end %>
+      </ul>
+    </div>
+  </div>
+</div>
