@@ -31,13 +31,14 @@
 			<div class="well well-sm seller-friend">
 				<span class="pull-left">
 					<strong><%= txn.visible_status %></strong><br>
-					<% unless txn.txn_status.open? %>
+					<% unless txn.transact_with == nil %>
 					<%= txn.status_preposition+' '+txn.transact_with.user.first_name+' '+txn.transact_with.user.last_name %><br>
 					<% end %>
 					as of <%= txn.updated_at.to_date.to_formatted_s(:long) %>
 				</span>
+				<% unless txn.transact_with == nil %>
 				<span class="pull-right"><%= image_tag txn.transact_with.user.image, class: 'img-rounded img-responsive friend-image' %></span>
-
+				<% end %>
 			</div>
 
 			<!-- pending-seller-buttons shown only when role=seller and txn_status=pending -->

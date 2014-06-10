@@ -28,8 +28,8 @@
         <span class="pull-right"><%= image_tag @product.seller.image, class: 'img-rounded img-responsive friend-image' %></span>
       </div>
       
-      <form role="form" class="col-xs-12" id="edit-form">
-        <%= form_for(@product) do |f| %>
+      <div role="form" class="col-xs-12" id="edit-form">
+        <%= form_for @product do |f| %>
 
         <div class="form-group">
             <%= f.label :name %><br>
@@ -53,7 +53,7 @@
         <%= f.submit %>
 
         <% end %>
-      </form>
+      </div>
     </div>
 
   </div>

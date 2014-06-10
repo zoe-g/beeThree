@@ -9,22 +9,22 @@ class BeeThreeMailer < ActionMailer::Base
 
   def buyer_offer(email, name)
     @name = name
-    mail to: email, subject: "beeThree - Offer submitted!"
+    mail to: email, subject: "beeThree - Offer Submitted!"
   end
 
   def seller_offer(email, name)
     @name = name
-    mail to: email, subject: "beeThree - Offer submitted!"
+    mail to: email, subject: "beeThree - Offer Received!"
   end
 
   def seller_accept(email, name)
     @name = name
-    mail to: email, subject: "beeThree - Offer Accept!"
+    mail to: email, subject: "beeThree - Offer Accepted!"
   end
 
   def buyer_accept(email, name)
     @name = name
-    mail to: email, subject: "beeThree - Offer Accept!"
+    mail to: email, subject: "beeThree - Offer Confirmed!"
   end
 
   def seller_decline(email, name)
